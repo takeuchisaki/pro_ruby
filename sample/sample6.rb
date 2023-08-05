@@ -75,3 +75,14 @@ hello('Carol')
 TEXT
 
 puts text.gsub(/^[ \t]+$/, '')
+
+
+text = "私の誕生日は1977年7月17日です。"
+m = /(\d+)年(\d+)月(\d+)日/.match(text)
+
+
+m = /(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/.match(text)
+
+if /(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/ =~ text
+  puts "#{year}/#{month}/#{day}"
+end
