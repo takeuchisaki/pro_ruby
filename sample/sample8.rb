@@ -1,8 +1,8 @@
-puts "Hello, world!".rainbow
+# puts "Hello, world!".rainbow
 
-puts [1, 2, 3].rainnbow
+# puts [1, 2, 3].rainnbow
 
-puts "\e[31mABC\e[0m"
+# puts "\e[31mABC\e[0m"
 
 
 module Greetable
@@ -35,4 +35,9 @@ class User
   def log(text)
     puts "[LOG] #{text}"
   end
+end
+
+class User
+  p self
+  p self.class
 end
