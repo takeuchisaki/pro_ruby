@@ -29,3 +29,18 @@ repeat_proc = Proc.new { |text| text * 2 }
 question_proc = Proc.new { |text| "#{text}?" }
 
 greet(shuffle_proc, repeat_proc, question_proc)
+
+
+
+synth = WordSynth.new
+synth.play("Ruby is fun!")
+
+synth = WordSynth.new
+synth.add_effect(Effects.reverse)
+synth.play("Ruby is fun!")
+
+synth = WordSynth.new
+synth.add_effect(Effects.echo(2))
+synth.add_effect(Effects.loud(3))
+synth.add_effect(Effects.reverse)
+synth.play("Ruby is fun!")
