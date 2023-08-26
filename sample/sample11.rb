@@ -60,3 +60,102 @@ cars.each do |car|
     puts "EV: #{name} / motor: #{motor}"
   end
 end
+
+
+
+data = [[1, 2, 3], [5, 4, 6]]
+data.each do |numbers|
+  case numbers
+  in [a, b, c] if b == a + 1 && c == b + 1
+    puts "matched: #{numbers}"
+  else
+    puts "not matched: #{numbers}"
+  end
+end
+
+
+case [1, 2, 3, 2, 1]
+in [*, n, 2, *] if n == 3
+  "matched: #{n}"
+else
+  "not matched"
+end
+
+
+person = {name: 'Alice', children: ['Bob']}
+if person in {name:, children: [_]}
+  "Hello, #{name}!"
+end
+
+
+cars = [
+  {name: 'The Beatle', engine: '105ps'},
+  {name: 'Prius', engine: '98ps', motor: '72ps'},
+  {name: 'Tesla', motor: '306ps'}
+]
+
+cars.select do |car|
+  car in {name:, motor:}
+end
+
+
+words = 'Ruby is fun'
+
+words.split(' ')
+     .map { |word| word.upcase + '!' * 3}
+     .join(' ') => loud_voice
+
+
+
+class Point
+  def initialize(x, y)
+    @x = x
+    @y= y
+  end
+  
+  def deconstruct
+    [@x, @y]
+  end
+  
+  def deconstruct_keys(keys)
+    hash = {}
+    hash[:x] = @x if keys.nil? || keys.include?(:x)
+    hash[:y] = @y if keys.nil? || keys.include?(:y)
+    hash
+  end
+  
+  def to_s
+    "x:#{@x}, y:#{@y}"
+  end
+end
+
+point = Point.new(10, 20)
+
+case point
+in [1, 2]
+  "no matched"
+in [10, 20]
+  "matched"
+end
+
+case point
+in {x: 1, y: 2}
+  "no matched"
+in {x: 10, y: 20}
+  "matched"
+end
+
+
+data = [
+  Point.new(10, 20),
+  [10, 20]
+]
+
+data.each do |obj|
+  case obj
+  in Point(10, 20)
+    puts "point=#{obj}"
+  in Array(10, 20)
+    puts "array=#{obj}"
+  end
+end
