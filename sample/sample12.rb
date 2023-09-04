@@ -48,3 +48,7 @@ class User < ApplicationRecord
     info.name
   end
 end
+
+
+
+[1, 2, 3].map { |n| n * 10 }
