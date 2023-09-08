@@ -17,3 +17,49 @@ lib.file?
 lib.directory?
 
 lib.join('sample.txt').to_s
+
+
+
+require 'csv'
+
+CSV.open('./lib/sample.csv', 'w') do |csv|
+    csv << ['Namae', 'Email', 'Age']
+    csv << ['Alice', 'alice@example.com', 20]
+end
+
+
+CSV.foreach('./lib/sample.tsv', col_sep: "\t") do |row|
+    puts "1: #{row[0]}, 2: #{row[1]}, 3: #{row[2]}"
+end
+
+
+
+
+require 'json'
+
+user = { name: 'Alice', email: 'alice@example.com', age: 20 }
+
+user_json = user.to_json
+puts user_json
+
+JSON.parse(user_json)
+
+JSON.parse(user_json, symbolize_names: true)
+
+
+
+
+require 'yaml'
+
+yaml = <<TEXT
+alice:
+  name: 'Alice'
+  email: 'alice@example.com'
+  age: 20
+TEXT
+
+users = YAML.load(yaml)
+
+users['alice']['gender'] = :female
+
+puts YAML.dump(users)
