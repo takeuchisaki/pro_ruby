@@ -63,3 +63,28 @@ users = YAML.load(yaml)
 users['alice']['gender'] = :female
 
 puts YAML.dump(users)
+
+
+
+
+
+code = '[1, 2, 3].map { |n| n * 10 }'
+
+eval(code)
+
+
+
+
+task :hello_world do
+  puts 'Hello, world!'
+end
+
+
+class MyRakeFile < RakeFile
+  def main()
+    dese('テスト用のタスクです。');
+    task(:hello_world, -> {
+      puts('Hello, world!');
+    });
+  end
+end
